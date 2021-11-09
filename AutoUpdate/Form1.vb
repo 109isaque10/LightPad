@@ -4,6 +4,7 @@ Public Class Form1
     Dim AppPath = My.Application.Info.DirectoryPath
     Dim tool As String = AppPath + "\LightPad.exe"
     Dim wClient As New WebClient
+    Dim newVersion As Boolean
 
     Private Sub getUpdates()
         If IO.File.Exists(tool) Then
@@ -80,6 +81,7 @@ Public Class Form1
             LinkLabel2.Visible = True
             ProgressBar1.Visible = True
             newVersionAvailable.ShowBalloonTip(0)
+            newVersion = True
         Else
             Dim siz As Size = New Size(364, 70)
             Size = siz
@@ -112,7 +114,7 @@ Public Class Form1
     End Sub
 
     Private Sub newVersionAvailable_MouseClick(sender As Object, e As MouseEventArgs) Handles newVersionAvailable.MouseDoubleClick
-        If newVersionAvailable.BalloonTipTitle = "Update Available!" Then
+        If newVersion Then
             yes()
         End If
     End Sub
