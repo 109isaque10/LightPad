@@ -398,6 +398,7 @@ End Class
 Public Class MyRender
     Inherits ToolStripProfessionalRenderer
     Shared Property highlightbackcolor As Color = Color.CornflowerBlue
+    Shared Property highlightforecolor As Color = Color.White
     Shared Property nonhighlightbackcolor As Color = Color.FromName("Control")
     Shared Property nonhighlightforecolor As Color = Color.Black
     Shared Property detailsColor As SolidBrush = Brushes.Black
