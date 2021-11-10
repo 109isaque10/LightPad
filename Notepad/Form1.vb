@@ -9,7 +9,7 @@ Public Class Form1
     Dim AppPath As String = My.Application.Info.DirectoryPath, Version As String = Application.ProductVersion
     Dim fs As IO.FileStream, Writer As IO.StreamWriter
     Dim render As New MyRender(), rectangleSeparator As Rectangle
-    Dim au As AutoUpdate.Form1
+    Public Shared au As AutoUpdate.Form1
 
     Public Shared Property DarkSettings As Boolean
         Get
@@ -249,11 +249,11 @@ Public Class Form1
         ToolStripSeparator2.Size = New Size(ToolStripSeparator2.Width, 6)
         ToolStripSeparator3.Size = New Size(ToolStripSeparator3.Width, 6)
     End Sub
-    Private Sub autoUpdate()
+    Public Shared Sub autoUpdate()
         Try
-            au = New AutoUpdate.Form1(My.Settings.Dark, My.Settings.detailsColor, Version)
+            au = New AutoUpdate.Form1(My.Settings.Dark, My.Settings.detailsColor, Application.ProductVersion)
         Catch ex As Exception
-            MessageBox.Show(Me, "An error ocurred, please give the developer this info: " + vbCrLf + ex.ToString, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show(Form1, "An error ocurred, please give the developer this info: " + vbCrLf + ex.ToString, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
