@@ -382,7 +382,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:LightPad"
         "ProductCode" = "8:{F410DA9D-8ED0-489E-A3E0-17E6FB3323CE}"
-        "PackageCode" = "8:{0A8211F2-70A6-45EF-802A-48233F43BF21}"
+        "PackageCode" = "8:{21825437-224B-4B1C-BE95-C3D9F3F46E67}"
         "UpgradeCode" = "8:{383F559F-3064-47FF-879D-8F72A3DC5842}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
