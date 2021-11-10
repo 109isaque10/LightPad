@@ -1,10 +1,10 @@
 ﻿Imports System.Net
-
 Public Class Form1
     Dim AppPath = My.Application.Info.DirectoryPath
     Dim tool As String = AppPath + "\LightPad.exe"
     Dim wClient As New WebClient
     Dim newVersion As Boolean
+    Dim currentVersion As String
 
     Private Sub getUpdates()
         If IO.File.Exists(tool) Then
@@ -64,13 +64,21 @@ Public Class Form1
         Close()
     End Sub
 
+    Public Sub New(dark As Boolean, details As Color, currentVersion As String)
+        InitializeComponent()
+        If dark Then
+            BackColor = Color.Black
+            ForeColor = Color.FromName("Control")
+        End If
+        LinkLabel1.LinkColor = details
+        LinkLabel2.LinkColor = details
+        Me.currentVersion = currentVersion
+    End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim request As HttpWebRequest = HttpWebRequest.Create("https://www.dropbox.com/s/08azfq6z77smtom/newestV.txt?dl=1")
         Dim response As HttpWebResponse = request.GetResponse()
         Dim sr As IO.StreamReader = New IO.StreamReader(response.GetResponseStream())
         Dim newestVersion As String = sr.ReadToEnd()
-        Dim currentVersion As String = My.Computer.FileSystem.ReadAllText(My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\currentV.txt")
-        Dim dark As String() = My.Computer.FileSystem.ReadAllText(My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\dark.txt").Split(";")
         WindowState = FormWindowState.Minimized
         Timer1.Start()
         If newestVersion > currentVersion Then
@@ -87,12 +95,6 @@ Public Class Form1
             Size = siz
             lblVersion.Text = "You´re already in the newest version available!"
         End If
-        If dark(0) = "True" Then
-            BackColor = Color.Black
-            ForeColor = Color.Beige
-        End If
-        LinkLabel1.LinkColor = Color.FromName(dark(1))
-        LinkLabel2.LinkColor = Color.FromName(dark(1))
     End Sub
 
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click

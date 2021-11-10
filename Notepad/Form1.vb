@@ -6,10 +6,27 @@ Public Class Form1
     Dim cache As List(Of String) = New List(Of String)(5), undoNumber As Integer, cacheResume As Boolean
     Dim nadme As String, original As String, path As String
     Dim op As OpenFileDialog = New OpenFileDialog(), sp As SaveFileDialog = New SaveFileDialog()
-    Dim fileName As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\currentV.txt", fileName2 As String = My.Computer.FileSystem.SpecialDirectories.MyDocuments + "\dark.txt"
     Dim AppPath As String = My.Application.Info.DirectoryPath, Version As String = Application.ProductVersion
     Dim fs As IO.FileStream, Writer As IO.StreamWriter
     Dim render As New MyRender(), rectangleSeparator As Rectangle
+    Dim au As AutoUpdate.Form1
+
+    Public Shared Property DarkSettings As Boolean
+        Get
+            Return My.Settings.Dark
+        End Get
+        Set()
+
+        End Set
+    End Property
+    Public Shared Property DetailColorSettings As Color
+        Get
+            Return My.Settings.detailsColor
+        End Get
+        Set()
+
+        End Set
+    End Property
     Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
         If RichTextBox1.Text <> "" And RichTextBox1.Text <> original Then
             saveChanges(e, True)
@@ -234,14 +251,7 @@ Public Class Form1
     End Sub
     Private Sub autoUpdate()
         Try
-            If Not File.Exists(fileName) Then
-                fs = File.Create(fileName)
-                fs.Close()
-            End If
-            Writer = My.Computer.FileSystem.OpenTextFileWriter(fileName, False)
-            Writer.Write(Version)
-            Writer.Close()
-            Process.Start(AppPath & "\AutoUpdate.exe")
+            au = New AutoUpdate.Form1(My.Settings.Dark, My.Settings.detailsColor, Version)
         Catch ex As Exception
             MessageBox.Show(Me, "An error ocurred, please give the developer this info: " + vbCrLf + ex.ToString, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
@@ -271,6 +281,7 @@ Public Class Form1
         If RichTextBox1.Text <> "" And RichTextBox1.Text <> original Then
             saveChanges(e, False)
         End If
+        au.Close()
     End Sub
 
     Private Sub RedoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RedoToolStripMenuItem.Click

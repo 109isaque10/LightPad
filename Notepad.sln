@@ -4,9 +4,6 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 17.0.31825.309
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "LightPad", "Notepad\LightPad.vbproj", "{F8CCDA96-AC8B-4B8E-9ACA-183BD4AD097B}"
-	ProjectSection(ProjectDependencies) = postProject
-		{FCBCD0D4-967B-4341-BAFA-DDB0E224BC8B} = {FCBCD0D4-967B-4341-BAFA-DDB0E224BC8B}
-	EndProjectSection
 EndProject
 Project("{F184B08F-C81C-45F6-A57F-5ABD9991F28F}") = "AutoUpdate", "AutoUpdate\AutoUpdate.vbproj", "{FCBCD0D4-967B-4341-BAFA-DDB0E224BC8B}"
 EndProject
