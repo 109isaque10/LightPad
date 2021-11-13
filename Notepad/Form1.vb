@@ -306,7 +306,6 @@ Public Class Form1
         If RichTextBox1.Text <> "" And RichTextBox1.Text <> original Then
             saveChanges(e, False)
         End If
-        au.Close()
     End Sub
 
     Private Sub RedoToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles RedoToolStripMenuItem.Click
