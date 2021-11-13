@@ -5,6 +5,8 @@ Public Class Form1
     Dim wClient As New WebClient
     Dim newVersion As Boolean
     Dim currentVersion As String
+    Dim version As List(Of String) = New List(Of String)
+    Dim strLang As String()
 
     Private Sub getUpdates()
         If IO.File.Exists(tool) Then
@@ -16,7 +18,7 @@ Public Class Form1
             End Try
         End If
         lblProgress.Visible = True
-        lblVersion.Text = "Downloading newest version.."
+        lblVersion.Text = version(5)
         wClient.DownloadFileAsync(New Uri("https://www.dropbox.com/s/h0r8bn2nufyxcil/LightPad.exe?dl=1"), AppPath + "\LightPad.exe")
         AddHandler wClient.DownloadProgressChanged, AddressOf ProgressChanged
     End Sub
@@ -24,13 +26,13 @@ Public Class Form1
     Private Sub ProgressChanged(sender As Object, e As DownloadProgressChangedEventArgs)
         ProgressBar1.Value = e.ProgressPercentage
         lblProgress.Text = e.ProgressPercentage.ToString + "%"
-        newVersionAvailable.BalloonTipTitle = "Updating.."
-        newVersionAvailable.BalloonTipText = "Downloading updates.. " & e.ProgressPercentage.ToString & "%"
+        newVersionAvailable.BalloonTipTitle = version(4)
+        newVersionAvailable.BalloonTipText = version(5) & e.ProgressPercentage.ToString & "%"
         newVersionAvailable.ShowBalloonTip(0)
         If lblProgress.Text = "100%" Then
-            MsgBox("Sucessfully updated!")
-            newVersionAvailable.BalloonTipTitle = "Update Completed!"
-            newVersionAvailable.BalloonTipText = "Sucessfully updated!"
+            MsgBox(version(7))
+            newVersionAvailable.BalloonTipTitle = version(6)
+            newVersionAvailable.BalloonTipText = version(7)
             newVersionAvailable.ShowBalloonTip(0)
             Process.Start(AppPath + "\LightPad.exe")
             Close()
@@ -44,15 +46,15 @@ Public Class Form1
     Private Sub yes()
         LinkLabel1.Visible = False
         LinkLabel2.Visible = False
-        lblVersion.Text = "Updating.."
-        newVersionAvailable.BalloonTipTitle = "Updating.."
-        newVersionAvailable.BalloonTipText = "Killing old process.."
+        lblVersion.Text = version(4)
+        newVersionAvailable.BalloonTipTitle = version(4)
+        newVersionAvailable.BalloonTipText = version(3)
         newVersionAvailable.ShowBalloonTip(0)
         Dim currentProcess As String = "LightPad"
         For Each process As Process In Process.GetProcessesByName(currentProcess)
             Try
                 process.Kill()
-                lblVersion.Text = "Killing old process.."
+                lblVersion.Text = version(3)
             Catch ex As Exception
                 MsgBox(ex.Message)
             End Try
@@ -64,7 +66,7 @@ Public Class Form1
         Close()
     End Sub
 
-    Public Sub New(dark As Boolean, details As Color, currentVersion As String)
+    Public Sub New(dark As Boolean, details As Color, currentVersion As String, strLang As String())
         InitializeComponent()
         If dark Then
             BackColor = Color.Black
@@ -73,6 +75,7 @@ Public Class Form1
         LinkLabel1.LinkColor = details
         LinkLabel2.LinkColor = details
         Me.currentVersion = currentVersion
+        Me.strLang = strLang
     End Sub
     Private Sub Form1_Load(sender As Object, e As EventArgs) Handles MyBase.Load
         Dim request As HttpWebRequest = HttpWebRequest.Create("https://www.dropbox.com/s/08azfq6z77smtom/newestV.txt?dl=1")
@@ -81,10 +84,11 @@ Public Class Form1
         Dim newestVersion As String = sr.ReadToEnd()
         WindowState = FormWindowState.Minimized
         Timer1.Start()
+        changeLanguage()
         If newestVersion > currentVersion Then
             Dim siz As Size = New Size(364, 132)
             Size = siz
-            lblVersion.Text = "There is a new version available: " & newestVersion & vbCrLf & "Do you want to update?"
+            lblVersion.Text = version(1) & newestVersion & vbCrLf & version(2)
             LinkLabel1.Visible = True
             LinkLabel2.Visible = True
             ProgressBar1.Visible = True
@@ -93,10 +97,28 @@ Public Class Form1
         Else
             Dim siz As Size = New Size(364, 70)
             Size = siz
-            lblVersion.Text = "You´re already in the newest version available!"
+            lblVersion.Text = version(0)
         End If
     End Sub
-
+    Private Sub changeLanguage()
+        For Each c As Control In Controls
+            If c.AccessibleDescription <> "" Then
+                c.Text = strLang(c.AccessibleDescription)
+            End If
+        Next
+        Text = strLang(67)
+        'already new 0
+        'new version available 1
+        'do you want 2
+        'kill process 3
+        'updating 4
+        'downloading updates 5
+        'update 6
+        'update complete 7
+        For i = 61 To 68
+            version.Add(strLang(i))
+        Next
+    End Sub
     Private Sub ExitToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ExitToolStripMenuItem.Click
         Close()
     End Sub

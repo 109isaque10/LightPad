@@ -1,0 +1,9 @@
+﻿Arquivo;Novo    Ctrl+N;Abrir..   Ctrl+O;Salvar                  Ctrl+S;Salvar Como..    Ctrl+Shift+S;Imprimir..           Ctrl+P;Editar;Desfazer;Refazer;Achar/Substituir..   Ctrl+F;Exibir;Word Wrap;Fonte..;Tema..;Línguagem..;Ajuda;Feedback;Sobre;Reseta o documento ao estágio inicial;Abre um documento;Salva um documento;Salva um documento com outro nome;Imprimi o documento atual;Desfazer um erro;Refazer um erro;Encontrar ou substituir palavras;Faz as palavras não saírem da sua janela;Muda o tamanho da fonte, coloca em negrito, ou mudar a própria fonte;Muda o tema de cores, colocar no modo escuro ou claro;Muda a línguagem atual;Dar feedback ao desenvolvedor sobre o program;Aprender mais sobre o programa suas licenças;Achar;Reverso;CapsLock;Todos;Subst.;Encontrar;Cores:;Padrão;Roxo;Verde;Azul;Vermelho;Tema:;Claro;Escuro;Tema;Línguas:;Padrão (Inglês);Português;Francês;Chinês;Polonês;Língua;Este aplicativo é para qualquer pessoa usar
+e não têm restrições em relação ao aplicativo, a 
+menos que você ganha dinheiro com isso, aí
+sim eu ficarei muito bravo, e podem ter 
+problemas judiciais graves.
+
+Este aplicativo é uma recriação do bloco de 
+notas, mas com mais recursos e mais leve. ;Ícones De:;Sobre;https://docs.google.com/forms/d/e/1FAIpQLSfTldCLjFEebaz7yuj84Op1v_nmlNloTKnafUVcJ7b8nYHVCA/viewform?usp=sf_link;Sim;Não;Você já está na versão mais atual!;Existe uma nova atualização disponivel:  ;
+Você quer atualizar?;Matando processos..;Atualizando..;Baixando atualizações..;Atualização;Atualização completa!

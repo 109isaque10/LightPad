@@ -23,9 +23,9 @@ Partial Class Themes
     <System.Diagnostics.DebuggerStepThrough()>
     Private Sub InitializeComponent()
         Me.GroupBox2 = New System.Windows.Forms.GroupBox()
-        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Darkrn = New ModernRadioButton.ModernRadioButton()
         Me.Lightrn = New ModernRadioButton.ModernRadioButton()
+        Me.GroupBox1 = New System.Windows.Forms.GroupBox()
         Me.Redrn = New ModernRadioButton.ModernRadioButton()
         Me.Bluern = New ModernRadioButton.ModernRadioButton()
         Me.Greenrn = New ModernRadioButton.ModernRadioButton()
@@ -37,6 +37,7 @@ Partial Class Themes
         '
         'GroupBox2
         '
+        Me.GroupBox2.AccessibleDescription = "44"
         Me.GroupBox2.Controls.Add(Me.Darkrn)
         Me.GroupBox2.Controls.Add(Me.Lightrn)
         Me.GroupBox2.Location = New System.Drawing.Point(6, 111)
@@ -46,8 +47,32 @@ Partial Class Themes
         Me.GroupBox2.TabStop = False
         Me.GroupBox2.Text = "Theme:"
         '
+        'Darkrn
+        '
+        Me.Darkrn.AccessibleDescription = "46"
+        Me.Darkrn.AutoSize = True
+        Me.Darkrn.Location = New System.Drawing.Point(137, 21)
+        Me.Darkrn.Name = "Darkrn"
+        Me.Darkrn.Size = New System.Drawing.Size(48, 17)
+        Me.Darkrn.TabIndex = 9
+        Me.Darkrn.Text = "Dark"
+        Me.Darkrn.UseVisualStyleBackColor = True
+        '
+        'Lightrn
+        '
+        Me.Lightrn.AccessibleDescription = "45"
+        Me.Lightrn.AutoSize = True
+        Me.Lightrn.Location = New System.Drawing.Point(6, 21)
+        Me.Lightrn.Name = "Lightrn"
+        Me.Lightrn.Size = New System.Drawing.Size(48, 17)
+        Me.Lightrn.TabIndex = 8
+        Me.Lightrn.Text = "Light"
+        Me.Lightrn.UseVisualStyleBackColor = True
+        '
         'GroupBox1
         '
+        Me.GroupBox1.AccessibleDescription = "38"
+        Me.GroupBox1.AccessibleName = ""
         Me.GroupBox1.Controls.Add(Me.Redrn)
         Me.GroupBox1.Controls.Add(Me.Bluern)
         Me.GroupBox1.Controls.Add(Me.Greenrn)
@@ -60,30 +85,11 @@ Partial Class Themes
         Me.GroupBox1.TabStop = False
         Me.GroupBox1.Text = "Colors:"
         '
-        'Darkrn
-        '
-        Me.Darkrn.AutoSize = True
-        Me.Darkrn.Location = New System.Drawing.Point(137, 21)
-        Me.Darkrn.Name = "Darkrn"
-        Me.Darkrn.Size = New System.Drawing.Size(48, 17)
-        Me.Darkrn.TabIndex = 9
-        Me.Darkrn.Text = "Dark"
-        Me.Darkrn.UseVisualStyleBackColor = True
-        '
-        'Lightrn
-        '
-        Me.Lightrn.AutoSize = True
-        Me.Lightrn.Location = New System.Drawing.Point(6, 21)
-        Me.Lightrn.Name = "Lightrn"
-        Me.Lightrn.Size = New System.Drawing.Size(48, 17)
-        Me.Lightrn.TabIndex = 8
-        Me.Lightrn.Text = "Light"
-        Me.Lightrn.UseVisualStyleBackColor = True
-        '
         'Redrn
         '
+        Me.Redrn.AccessibleDescription = "43"
         Me.Redrn.AutoSize = True
-        Me.Redrn.Location = New System.Drawing.Point(135, 34)
+        Me.Redrn.Location = New System.Drawing.Point(115, 34)
         Me.Redrn.Name = "Redrn"
         Me.Redrn.Size = New System.Drawing.Size(45, 17)
         Me.Redrn.TabIndex = 4
@@ -92,8 +98,9 @@ Partial Class Themes
         '
         'Bluern
         '
+        Me.Bluern.AccessibleDescription = "42"
         Me.Bluern.AutoSize = True
-        Me.Bluern.Location = New System.Drawing.Point(135, 11)
+        Me.Bluern.Location = New System.Drawing.Point(115, 11)
         Me.Bluern.Name = "Bluern"
         Me.Bluern.Size = New System.Drawing.Size(46, 17)
         Me.Bluern.TabIndex = 3
@@ -102,6 +109,7 @@ Partial Class Themes
         '
         'Greenrn
         '
+        Me.Greenrn.AccessibleDescription = "41"
         Me.Greenrn.AutoSize = True
         Me.Greenrn.Location = New System.Drawing.Point(6, 57)
         Me.Greenrn.Name = "Greenrn"
@@ -112,6 +120,7 @@ Partial Class Themes
         '
         'Purplern
         '
+        Me.Purplern.AccessibleDescription = "40"
         Me.Purplern.AutoSize = True
         Me.Purplern.Location = New System.Drawing.Point(6, 34)
         Me.Purplern.Name = "Purplern"
@@ -122,6 +131,7 @@ Partial Class Themes
         '
         'Defaultrn
         '
+        Me.Defaultrn.AccessibleDescription = "39"
         Me.Defaultrn.AutoSize = True
         Me.Defaultrn.Location = New System.Drawing.Point(6, 11)
         Me.Defaultrn.Name = "Defaultrn"

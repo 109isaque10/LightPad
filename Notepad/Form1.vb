@@ -1,5 +1,5 @@
-﻿Imports System.Configuration
-Imports System.IO
+﻿Imports System.IO
+Imports System.Resources
 
 Public Class Form1
     Private Const V As Integer = 4
@@ -9,23 +9,20 @@ Public Class Form1
     Dim AppPath As String = My.Application.Info.DirectoryPath, Version As String = Application.ProductVersion
     Dim fs As IO.FileStream, Writer As IO.StreamWriter
     Dim render As New MyRender(), rectangleSeparator As Rectangle
+    Dim feedbackLink As String
+    Public Shared strLang() As String
+    Public Shared resMan As ResourceManager
     Public Shared au As AutoUpdate.Form1
 
-    Public Shared Property DarkSettings As Boolean
+    Public Shared ReadOnly Property DarkSettings As Boolean
         Get
             Return My.Settings.Dark
         End Get
-        Set()
-
-        End Set
     End Property
-    Public Shared Property DetailColorSettings As Color
+    Public Shared ReadOnly Property DetailColorSettings As Color
         Get
             Return My.Settings.detailsColor
         End Get
-        Set()
-
-        End Set
     End Property
     Private Sub NewToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles NewToolStripMenuItem.Click
         If RichTextBox1.Text <> "" And RichTextBox1.Text <> original Then
@@ -39,7 +36,7 @@ Public Class Form1
         original = ""
         RichTextBox1.Text = original
         nadme = "Untitled"
-        Text = nadme & "- LightPad"
+        Text = nadme & " - LightPad"
     End Sub
 
     Private Sub openFileAs()
@@ -205,6 +202,34 @@ Public Class Form1
                 changeTheme(New SolidBrush(Color.IndianRed))
                 saveSettings()
         End Select
+        Select Case My.Settings.Language
+            Case 0
+                My.Settings.langStr = "en"
+                saveSettings()
+                changeLanguage(My.Settings.langStr)
+            Case 1
+                My.Settings.langStr = "pt"
+                saveSettings()
+                changeLanguage(My.Settings.langStr)
+        End Select
+    End Sub
+    Private Sub changeLanguage(s As String)
+        Dim strLang As String()
+        strLang = My.Resources.ResourceManager.GetString(s).Split(";")
+        Me.strLang = strLang
+        For Each c As ToolStripMenuItem In MenuStrip1.Items
+            If c.AccessibleDescription <> "" Then
+                c.Text = strLang(c.AccessibleDescription)
+                For Each d As ToolStripMenuItem In c.DropDownItems
+                    If d.AccessibleDescription <> "" Then
+                        d.Text = strLang(d.AccessibleDescription)
+                        d.ToolTipText = strLang(d.AccessibleName)
+                    End If
+                Next
+            End If
+        Next
+        feedbackLink = strLang(58)
+        setSize()
     End Sub
     Private Sub changeTheme(s As SolidBrush)
         MyRender.detailsColor = s
@@ -224,7 +249,6 @@ Public Class Form1
         End If
         setSize()
         MenuStrip1.Renderer = render
-        nadme = "Untitled"
         KeyPreview = True
         cacheResume = True
         prepareFile(op)
@@ -236,6 +260,7 @@ Public Class Form1
         darkCheck()
         wordWrapCheck()
         loadCheck()
+        Clear()
         autoUpdate()
     End Sub
     Private Sub setSize()
@@ -251,9 +276,9 @@ Public Class Form1
     End Sub
     Public Shared Sub autoUpdate()
         Try
-            au = New AutoUpdate.Form1(My.Settings.Dark, My.Settings.detailsColor, Application.ProductVersion)
+            au = New AutoUpdate.Form1(My.Settings.Dark, My.Settings.detailsColor, Application.ProductVersion, strLang)
         Catch ex As Exception
-            MessageBox.Show(Form1, "An error ocurred, please give the developer this info: " + vbCrLf + ex.ToString, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
+            MessageBox.Show("An error ocurred, please give the developer this info: " + vbCrLf + ex.ToString, "Error!", MessageBoxButtons.OK, MessageBoxIcon.Error)
         End Try
     End Sub
 
@@ -324,6 +349,16 @@ Public Class Form1
         End Select
     End Sub
 
+    Private Sub LanguageToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles LanguageToolStripMenuItem.Click
+        Dim t As New Language, control As Color = Color.FromName("Control")
+        If My.Settings.Dark Then
+            t.BackColor = Color.Black
+            t.ForeColor = control
+            t.GroupBox1.ForeColor = control
+        End If
+        t.Show()
+    End Sub
+
     Private Sub ThemeToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles ThemeToolStripMenuItem.Click
         Dim t As New Themes, control As Color = Color.FromName("Control")
         If My.Settings.Dark Then
@@ -336,12 +371,19 @@ Public Class Form1
     End Sub
 
     Private Sub FeedbackToolStripMenuItem_Click(sender As Object, e As EventArgs) Handles FeedbackToolStripMenuItem.Click
-        Process.Start("https://docs.google.com/forms/d/e/1FAIpQLSfZ1F33eikEFYbt0flFEHfuoPakf_Sw5c3sI7pcVP6iHfssEA/viewform?usp=sf_link")
+        Process.Start(feedbackLink)
     End Sub
 
     Private Sub find()
-        Dim find As Find = New Find()
-        find.Show()
+        Dim t As New Find, control As Color = Color.FromName("Control")
+        If My.Settings.Dark Then
+            t.BackColor = Color.Black
+            t.ForeColor = control
+            t.Button1.BackColor = Color.FromArgb(64, 64, 64, 64)
+            t.Button2.BackColor = Color.FromArgb(64, 64, 64, 64)
+            t.Button3.BackColor = Color.FromArgb(64, 64, 64, 64)
+        End If
+        t.Show()
     End Sub
 
     Private Sub printPage(sender As Object, e As Printing.PrintPageEventArgs) Handles PrintDocument1.PrintPage

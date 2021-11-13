@@ -111,6 +111,32 @@ Namespace My.Resources
         End Property
         
         '''<summary>
+        '''  Looks up a localized string similar to File
+        '''New		Ctrl+N
+        '''Open..	Ctrl+O
+        '''Save		Ctrl+S
+        '''Save As..	Ctrl+Shift+S
+        '''Print..		Ctrl+P
+        '''Edit
+        '''Undo
+        '''Redo
+        '''Find/Replace..	Ctrl+F
+        '''View
+        '''Word Wrap
+        '''Font..
+        '''Theme..
+        '''Language..
+        '''Help
+        '''Feedback
+        '''About.
+        '''</summary>
+        Public ReadOnly Property en() As String
+            Get
+                Return ResourceManager.GetString("en", resourceCulture)
+            End Get
+        End Property
+        
+        '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
         Public ReadOnly Property feedback() As System.Drawing.Bitmap
@@ -153,6 +179,16 @@ Namespace My.Resources
         '''<summary>
         '''  Looks up a localized resource of type System.Drawing.Bitmap.
         '''</summary>
+        Public ReadOnly Property language() As System.Drawing.Bitmap
+            Get
+                Dim obj As Object = ResourceManager.GetObject("language", resourceCulture)
+                Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized resource of type System.Drawing.Bitmap.
+        '''</summary>
         Public ReadOnly Property newfile() As System.Drawing.Bitmap
             Get
                 Dim obj As Object = ResourceManager.GetObject("newfile", resourceCulture)
@@ -177,6 +213,32 @@ Namespace My.Resources
             Get
                 Dim obj As Object = ResourceManager.GetObject("print", resourceCulture)
                 Return CType(obj,System.Drawing.Bitmap)
+            End Get
+        End Property
+        
+        '''<summary>
+        '''  Looks up a localized string similar to Arquivo
+        '''Novo	Ctrl+N
+        '''Abrir.. Ctrl+O
+        '''Salvar			Ctrl+S
+        '''Salvar Como..	Ctrl+Shift+S
+        '''Imprimir..		Ctrl+P
+        '''Editar
+        '''Desfazer
+        '''Refazer
+        '''Achar/Substituir..	Ctrl+F
+        '''Exibir
+        '''Word Wrap
+        '''Fonte..
+        '''Tema..
+        '''Línguagem..
+        '''Ajuda
+        '''Feedback
+        '''Sobre.
+        '''</summary>
+        Public ReadOnly Property pt() As String
+            Get
+                Return ResourceManager.GetString("pt", resourceCulture)
             End Get
         End Property
         

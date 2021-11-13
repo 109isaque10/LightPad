@@ -31,8 +31,9 @@ Partial Class About
         '
         'Label1
         '
+        Me.Label1.AccessibleDescription = "55"
         Me.Label1.AutoSize = True
-        Me.Label1.Location = New System.Drawing.Point(4, 9)
+        Me.Label1.Location = New System.Drawing.Point(4, 7)
         Me.Label1.Name = "Label1"
         Me.Label1.Size = New System.Drawing.Size(222, 91)
         Me.Label1.TabIndex = 0
@@ -51,6 +52,7 @@ Partial Class About
         '
         'Label2
         '
+        Me.Label2.AccessibleDescription = "56"
         Me.Label2.AutoSize = True
         Me.Label2.Location = New System.Drawing.Point(4, 118)
         Me.Label2.Name = "Label2"

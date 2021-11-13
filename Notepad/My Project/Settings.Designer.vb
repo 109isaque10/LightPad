@@ -124,6 +124,30 @@ Namespace My
                 Me("detailsColor") = value
             End Set
         End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("0")>  _
+        Public Property Language() As Integer
+            Get
+                Return CType(Me("Language"),Integer)
+            End Get
+            Set
+                Me("Language") = value
+            End Set
+        End Property
+        
+        <Global.System.Configuration.UserScopedSettingAttribute(),  _
+         Global.System.Diagnostics.DebuggerNonUserCodeAttribute(),  _
+         Global.System.Configuration.DefaultSettingValueAttribute("en")>  _
+        Public Property langStr() As String
+            Get
+                Return CType(Me("langStr"),String)
+            End Get
+            Set
+                Me("langStr") = value
+            End Set
+        End Property
     End Class
 End Namespace
 

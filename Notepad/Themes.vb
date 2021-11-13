@@ -52,5 +52,21 @@ Public Class Themes
         Else
             Lightrn.Checked = True
         End If
+        changeLanguage(My.Settings.langStr)
+    End Sub
+    Private Sub changeLanguage(s As String)
+        Dim strLang As String()
+        strLang = My.Resources.ResourceManager.GetString(s).Split(";")
+        For Each c As Control In Controls
+            If c.AccessibleDescription <> "" Then
+                c.Text = strLang(c.AccessibleDescription)
+                If c.Name.Contains("Group") Then
+                    For Each d As Control In c.Controls
+                        d.Text = strLang(d.AccessibleDescription)
+                    Next
+                End If
+            End If
+        Next
+        Text = strLang(47)
     End Sub
 End Class

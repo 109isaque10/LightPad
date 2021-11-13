@@ -1,0 +1,8 @@
+﻿File;New		Ctrl+N;Open..	Ctrl+O;Save		Ctrl+S;Save As..	Ctrl+Shift+S;Print..		Ctrl+P;Edit;Undo;Redo;Find/Replace..	Ctrl+F;View;Word Wrap;Font..;Theme..;Language..;Help;Feedback;About;Clear the current document and unload it;Opens a document;Save a document;Save a document with another name;Print the current document;Undo a mistake;Redo a mistake;Find or replace words;Makes the word to don't go after your window size;Change font size, put it into bold, or change the font itself;Change the color theme and make it dark or light;Changes the current language;Give feedback to the developer about the program;Learn more about the program, and see its license;Find;Up;MatchCase;All;Replace;Find;Colors:;Default;Purple;Green;Blue;Red;Themes:;Light;Dark;Theme;Languages:;Default (English);Portuguese;French;Chinese;Polish;Language;This app is for anyone to use, and does not 
+have restrictions regarding the app, unless 
+you make money from it, then i will be very 
+mad, and it could be serious judicial problems.
+
+This app is a recreation of notepad, but with
+more features, and i believe, lighter.;Icons From:;About;https://docs.google.com/forms/d/e/1FAIpQLSdm7v3fEKZwaFyCRjqJu_G6JgkOMVYlRaPbSZ3f9oBrtaPPCw/viewform;Yes;No;You´re already in the newest version available!;There is a new version available: ;
+Do you want to update?;Killing old processes..;Updating..;Downloading updates..;Update;Update Completed!

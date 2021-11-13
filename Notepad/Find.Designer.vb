@@ -25,15 +25,16 @@ Partial Class Find
         Dim resources As System.ComponentModel.ComponentResourceManager = New System.ComponentModel.ComponentResourceManager(GetType(Find))
         Me.TextBox1 = New System.Windows.Forms.TextBox()
         Me.Button1 = New System.Windows.Forms.Button()
-        Me.CheckBox1 = New System.Windows.Forms.CheckBox()
-        Me.CheckBox2 = New System.Windows.Forms.CheckBox()
         Me.Button2 = New System.Windows.Forms.Button()
         Me.Button3 = New System.Windows.Forms.Button()
         Me.TextBox2 = New System.Windows.Forms.TextBox()
+        Me.CheckBox2 = New ModernRadioButton.ModernCheckBox()
+        Me.CheckBox1 = New ModernRadioButton.ModernCheckBox()
         Me.SuspendLayout()
         '
         'TextBox1
         '
+        Me.TextBox1.AccessibleName = "0"
         Me.TextBox1.Location = New System.Drawing.Point(7, 12)
         Me.TextBox1.Name = "TextBox1"
         Me.TextBox1.Size = New System.Drawing.Size(89, 20)
@@ -41,38 +42,20 @@ Partial Class Find
         '
         'Button1
         '
+        Me.Button1.AccessibleDescription = "32"
         Me.Button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup
         Me.Button1.Location = New System.Drawing.Point(7, 38)
         Me.Button1.Name = "Button1"
-        Me.Button1.Size = New System.Drawing.Size(37, 20)
+        Me.Button1.Size = New System.Drawing.Size(60, 20)
         Me.Button1.TabIndex = 1
         Me.Button1.Text = "Find"
         Me.Button1.UseVisualStyleBackColor = True
         '
-        'CheckBox1
-        '
-        Me.CheckBox1.AutoSize = True
-        Me.CheckBox1.Location = New System.Drawing.Point(102, 41)
-        Me.CheckBox1.Name = "CheckBox1"
-        Me.CheckBox1.Size = New System.Drawing.Size(89, 17)
-        Me.CheckBox1.TabIndex = 2
-        Me.CheckBox1.Text = "Match Case?"
-        Me.CheckBox1.UseVisualStyleBackColor = True
-        '
-        'CheckBox2
-        '
-        Me.CheckBox2.AutoSize = True
-        Me.CheckBox2.Location = New System.Drawing.Point(50, 41)
-        Me.CheckBox2.Name = "CheckBox2"
-        Me.CheckBox2.Size = New System.Drawing.Size(46, 17)
-        Me.CheckBox2.TabIndex = 3
-        Me.CheckBox2.Text = "Up?"
-        Me.CheckBox2.UseVisualStyleBackColor = True
-        '
         'Button2
         '
+        Me.Button2.AccessibleDescription = "36"
         Me.Button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button2.Location = New System.Drawing.Point(188, 38)
+        Me.Button2.Location = New System.Drawing.Point(212, 38)
         Me.Button2.Name = "Button2"
         Me.Button2.Size = New System.Drawing.Size(56, 20)
         Me.Button2.TabIndex = 4
@@ -81,8 +64,9 @@ Partial Class Find
         '
         'Button3
         '
+        Me.Button3.AccessibleDescription = "35"
         Me.Button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup
-        Me.Button3.Location = New System.Drawing.Point(188, 12)
+        Me.Button3.Location = New System.Drawing.Point(212, 12)
         Me.Button3.Name = "Button3"
         Me.Button3.Size = New System.Drawing.Size(56, 20)
         Me.Button3.TabIndex = 5
@@ -91,21 +75,44 @@ Partial Class Find
         '
         'TextBox2
         '
+        Me.TextBox2.AccessibleName = "0"
         Me.TextBox2.Location = New System.Drawing.Point(102, 12)
         Me.TextBox2.Name = "TextBox2"
-        Me.TextBox2.Size = New System.Drawing.Size(89, 20)
+        Me.TextBox2.Size = New System.Drawing.Size(112, 20)
         Me.TextBox2.TabIndex = 6
+        '
+        'CheckBox2
+        '
+        Me.CheckBox2.AccessibleDescription = "33"
+        Me.CheckBox2.AutoSize = True
+        Me.CheckBox2.Location = New System.Drawing.Point(69, 41)
+        Me.CheckBox2.Name = "CheckBox2"
+        Me.CheckBox2.Size = New System.Drawing.Size(40, 17)
+        Me.CheckBox2.TabIndex = 7
+        Me.CheckBox2.Text = "Up"
+        Me.CheckBox2.UseVisualStyleBackColor = True
+        '
+        'CheckBox1
+        '
+        Me.CheckBox1.AccessibleDescription = "34"
+        Me.CheckBox1.AutoSize = True
+        Me.CheckBox1.Location = New System.Drawing.Point(131, 41)
+        Me.CheckBox1.Name = "CheckBox1"
+        Me.CheckBox1.Size = New System.Drawing.Size(80, 17)
+        Me.CheckBox1.TabIndex = 8
+        Me.CheckBox1.Text = "MatchCase"
+        Me.CheckBox1.UseVisualStyleBackColor = True
         '
         'Find
         '
         Me.AutoScaleDimensions = New System.Drawing.SizeF(6.0!, 13.0!)
         Me.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font
-        Me.ClientSize = New System.Drawing.Size(249, 62)
+        Me.ClientSize = New System.Drawing.Size(273, 62)
+        Me.Controls.Add(Me.CheckBox1)
+        Me.Controls.Add(Me.CheckBox2)
         Me.Controls.Add(Me.TextBox2)
         Me.Controls.Add(Me.Button3)
         Me.Controls.Add(Me.Button2)
-        Me.Controls.Add(Me.CheckBox2)
-        Me.Controls.Add(Me.CheckBox1)
         Me.Controls.Add(Me.Button1)
         Me.Controls.Add(Me.TextBox1)
         Me.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle
@@ -121,9 +128,9 @@ Partial Class Find
 
     Friend WithEvents TextBox1 As TextBox
     Friend WithEvents Button1 As Button
-    Friend WithEvents CheckBox1 As CheckBox
-    Friend WithEvents CheckBox2 As CheckBox
     Friend WithEvents Button2 As Button
     Friend WithEvents Button3 As Button
     Friend WithEvents TextBox2 As TextBox
+    Friend WithEvents CheckBox2 As ModernRadioButton.ModernCheckBox
+    Friend WithEvents CheckBox1 As ModernRadioButton.ModernCheckBox
 End Class

@@ -40,6 +40,7 @@ Partial Class Form1
         '
         'lblVersion
         '
+        Me.lblVersion.AccessibleDescription = "59"
         Me.lblVersion.AutoSize = True
         Me.lblVersion.Location = New System.Drawing.Point(12, 9)
         Me.lblVersion.Name = "lblVersion"
@@ -57,6 +58,7 @@ Partial Class Form1
         '
         'LinkLabel1
         '
+        Me.LinkLabel1.AccessibleDescription = "59"
         Me.LinkLabel1.AutoSize = True
         Me.LinkLabel1.Location = New System.Drawing.Point(277, 48)
         Me.LinkLabel1.Name = "LinkLabel1"
@@ -68,6 +70,7 @@ Partial Class Form1
         '
         'LinkLabel2
         '
+        Me.LinkLabel2.AccessibleDescription = "60"
         Me.LinkLabel2.AutoSize = True
         Me.LinkLabel2.Location = New System.Drawing.Point(308, 48)
         Me.LinkLabel2.Name = "LinkLabel2"

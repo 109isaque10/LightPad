@@ -15,5 +15,16 @@
         LinkLabel2.Text = "V: " & Version
         LinkLabel1.LinkColor = My.Settings.detailsColor
         LinkLabel2.LinkColor = My.Settings.detailsColor
+        changeLanguage(My.Settings.langStr)
+    End Sub
+    Private Sub changeLanguage(s As String)
+        Dim strLang As String()
+        strLang = My.Resources.ResourceManager.GetString(s).Split(";")
+        For Each c As Control In Controls
+            If c.AccessibleDescription <> "" Then
+                c.Text = strLang(c.AccessibleDescription)
+            End If
+        Next
+        Text = strLang(57)
     End Sub
 End Class

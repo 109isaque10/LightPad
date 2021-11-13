@@ -74,4 +74,18 @@
             findButton()
         End If
     End Sub
+
+    Private Sub Find_Load(sender As Object, e As EventArgs) Handles MyBase.Load
+        changeLanguage(My.Settings.langStr)
+    End Sub
+    Private Sub changeLanguage(s As String)
+        Dim strLang As String()
+        strLang = My.Resources.ResourceManager.GetString(s).Split(";")
+        For Each c As Control In Controls
+            If c.AccessibleDescription <> "" Then
+                c.Text = strLang(c.AccessibleDescription)
+            End If
+        Next
+        Text = strLang(37)
+    End Sub
 End Class
